@@ -1,4 +1,4 @@
-package pinting.member.domain.dto;
+package pinting.member.controller.dto;
 
 import lombok.Getter;
 import lombok.Setter;

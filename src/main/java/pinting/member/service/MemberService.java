@@ -17,8 +17,7 @@ public class MemberService {
 
 	public Long createMember(Member member) {
 		validateDuplicateMember(member);
-
-		System.out.println("service member.name = " + member.getName());
+		member.setRole("ROLE_USER");
 
 		memberRepository.save(member);
 		return member.getId();

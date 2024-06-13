@@ -3,7 +3,7 @@ package pinting.member.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pinting.member.domain.Member;
-import pinting.member.domain.dto.MemberDto;
+import pinting.member.controller.dto.MemberDto;
 import pinting.member.service.MemberService;
 
 @Controller
