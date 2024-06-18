@@ -1,7 +1,5 @@
 package pinting.member.repository;
 
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
 import pinting.member.domain.Member;
 
 import java.util.List;

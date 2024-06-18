@@ -1,9 +1,7 @@
 package pinting.member.repository;
 
 import jakarta.persistence.EntityManager;
-import org.springframework.data.util.ProxyUtils;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import pinting.member.domain.Member;
 
@@ -31,11 +29,11 @@ public class JpaMemberRepository implements MemberRepository {
 	}
 
 	@Override
-	public void delete(Member entity) {
-		Assert.notNull(entity, "Entity must not be null");
-		Member existing = this.em.find(Member.class, entity.getId());
+	public void delete(Member member) {
+		Assert.notNull(member, "Entity must not be null");
+		Member existing = this.em.find(Member.class, member.getId());
 		if (existing != null) {
-				this.em.remove(this.em.contains(entity) ? entity : this.em.merge(entity));
+				this.em.remove(this.em.contains(member) ? member : this.em.merge(member));
 		}
 	}
 

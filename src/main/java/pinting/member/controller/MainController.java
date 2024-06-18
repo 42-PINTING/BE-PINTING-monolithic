@@ -23,24 +23,14 @@ public class MainController {
 
 	@PostMapping("/members")
 	public String createMember(MemberDto memberDto) {
-		Member member = new Member();
-		member.setName(memberDto.getName());
-		member.setEmail(memberDto.getEmail());
-
-		Long id = memberService.createMember(member);
-
+		Long id = memberService.createMember(memberDto);
 		return "successful creation for id: " + id;
 	}
 
-	@PutMapping("/members/{id}")
-	public Member updateMember(@PathVariable Long id, MemberDto memberDto) {
-		Member member = memberService.readOneMemberById(id);
-		member.setEmail(memberDto.getEmail());
-		member.setName(memberDto.getName());
-
-		memberService.updateMember(member);
-
-		return member;
+	@PatchMapping("/members/{id}")
+	public String updateMember(@PathVariable Long id, MemberDto memberDto) throws Exception {
+		memberService.updateMember(id, memberDto);
+		return "successful update for id: " + id;
 	}
 
 	@DeleteMapping("/members/{id}")
